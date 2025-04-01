@@ -22,37 +22,15 @@ int main(int argc, char* argv[]){
     return -1;
   }
   
-  std::string line;
-  std::getline(string, line);
   int size_line = 0;
-  std::string size_line_s;
   int cycle = 0;
-  std::string cycle_s;
-  int i = 0;
-  while (line[i] != ' ') {
-    size_line_s += line[i];
-    ++i;
-  }
-  size_line = std::stoi(size_line_s);
-  while (line[i] == ' ') {
-    ++i;
-  }
-  while (line[i] != ' ') {
-    cycle_s += line[i];
-    ++i;
-  }
-  cycle = std::stoi(cycle_s);
   std::string init;
-  while (line[i] == ' ') {
-    ++i;
-  }
-  while (line[i] != ' ' && line[i] != '\0' && line[i] != '\n') {
-    init += line[i];
-    ++i;
-  }
-  PostMachine programm(size_line, argv[1]); 
-  otp << programm.calc(init, cycle);
+  string >> size_line >> cycle >> init;
   string.close();
+
+  PostMachine programm(size_line, argv[1]); 
+  otp << programm.calc(init, cycle);  
   otp.close();
+  
   return 0;
 }
